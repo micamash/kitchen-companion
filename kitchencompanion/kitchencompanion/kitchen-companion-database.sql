@@ -7,7 +7,6 @@ DROP TABLE IF EXISTS inventory_item;
 DROP TABLE IF EXISTS meal_plan;
 DROP TABLE IF EXISTS shopping_list;
 DROP TABLE IF EXISTS recipe;
-DROP TABLE IF EXISTS inventory;
 DROP TABLE IF EXISTS item;
 DROP TABLE IF EXISTS users;
 
@@ -29,20 +28,14 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY(user_id)
 );
 
-CREATE TABLE inventory (
-	inventory_id serial,
-	user_id int NOT NULL,
-	quantity int NOT NULL,
-	date_added date,
-	CONSTRAINT PK_inventory PRIMARY KEY(inventory_id),
-	CONSTRAINT FK_user FOREIGN KEY(user_id) REFERENCES users(user_id)
-);
-
 CREATE TABLE inventory_item (
-	inventory_id int,
-	item_id int,
-	CONSTRAINT PK_inventory_item PRIMARY KEY(inventory_id, item_id),
-	CONSTRAINT FK_inventory FOREIGN KEY(inventory_id) REFERENCES inventory(inventory_id),
+	inventory_item_id serial,
+	user_id int NOT NULL,
+	item_id int NOT NULL,
+	quantity int NOT NULL DEFAULT (1),
+	date_added date,
+	CONSTRAINT PK_inventory_item PRIMARY KEY(inventory_item_id),
+	CONSTRAINT FK_user FOREIGN KEY(user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_item FOREIGN KEY(item_id) REFERENCES item(item_id)
 );
 
