@@ -2,31 +2,32 @@ package com.micamash.kitchencompanion.model;
 
 import java.time.LocalDate;
 
-public class Inventory {
+public class InventoryItem {
 
-    private int inventoryId;
+    private int inventoryItemId;
     private int userId;
     private int itemId;
     private int quantity;
     private LocalDate dateAdded;
+    private Item item;
 
-    public Inventory() {
+    public InventoryItem() {
     }
 
-    public Inventory(int inventoryId, int userId, int itemId, int quantity, LocalDate dateAdded) {
-        this.inventoryId = inventoryId;
+    public InventoryItem(int inventoryItemId, int userId, int itemId, int quantity, LocalDate dateAdded) {
+        this.inventoryItemId = inventoryItemId;
         this.userId = userId;
         this.itemId = itemId;
         this.quantity = quantity;
         this.dateAdded = dateAdded;
     }
 
-    public int getInventoryId() {
-        return inventoryId;
+    public int getInventoryItemId() {
+        return inventoryItemId;
     }
 
-    public void setInventoryId(int inventoryId) {
-        this.inventoryId = inventoryId;
+    public void setInventoryItemId(int inventoryId) {
+        this.inventoryItemId = inventoryId;
     }
 
     public int getUserId() {
@@ -60,4 +61,6 @@ public class Inventory {
     public void setDateAdded(LocalDate dateAdded) {
         this.dateAdded = dateAdded;
     }
+
+    public void setItem(Item item){this.item = item;}
 }

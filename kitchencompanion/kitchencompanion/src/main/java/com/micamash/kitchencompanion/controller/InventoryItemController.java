@@ -1,4 +1,4 @@
 package com.micamash.kitchencompanion.controller;
 
-public class InventoryController {
+public class InventoryItemController {
 }
