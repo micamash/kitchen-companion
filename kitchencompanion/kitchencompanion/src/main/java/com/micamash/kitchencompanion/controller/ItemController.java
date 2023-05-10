@@ -3,6 +3,7 @@ package com.micamash.kitchencompanion.controller;
 import com.micamash.kitchencompanion.dao.ItemDao;
 import com.micamash.kitchencompanion.dao.JdbcItemDao;
 import com.micamash.kitchencompanion.model.Item;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
