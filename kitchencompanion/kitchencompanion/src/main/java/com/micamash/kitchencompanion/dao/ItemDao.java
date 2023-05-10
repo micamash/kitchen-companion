@@ -15,10 +15,10 @@ public interface ItemDao {
     Item getById(int itemId);
 
 
-    public Item createItem(Item item);
+    Item createItem(Item item);
 
-    public Item updateItem(Item updatedItem);
+    Item updateItem(Item updatedItem);
 
-    public void deleteItem(int ItemId, int userId);
+    void deleteItem(int ItemId, int userId);
 }
 
