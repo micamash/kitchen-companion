@@ -3,8 +3,8 @@ package com.micamash.kitchencompanion.controller;
 import com.micamash.kitchencompanion.dao.ItemDao;
 import com.micamash.kitchencompanion.dao.JdbcItemDao;
 import com.micamash.kitchencompanion.model.Item;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/item")
+@PreAuthorize("isAuthenticated()")
 
 public class ItemController {
 
@@ -41,12 +42,12 @@ public class ItemController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping( path = "", method = RequestMethod.POST)
-    public Item createItem(@Valid @RequestBody Item item) {
+    public Item createItem( @RequestBody Item item) {
         return dao.createItem(item);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-    public void updateItem(@Valid @RequestBody Item updatedItem) {
+    public void updateItem(@RequestBody Item updatedItem) {
         Item item = dao.updateItem(updatedItem);
         if (item == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found");
