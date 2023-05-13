@@ -1,4 +1,4 @@
 package com.micamash.kitchencompanion.dao;
 
-public class JdbcMealPlanDao {
+public class JdbcMealPlanDao implements MealPlanDao {
 }

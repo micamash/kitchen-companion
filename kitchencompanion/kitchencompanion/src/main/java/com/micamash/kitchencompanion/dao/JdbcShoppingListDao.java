@@ -1,4 +1,4 @@
 package com.micamash.kitchencompanion.dao;
 
-public class JdbcShoppingListDao {
+public class JdbcShoppingListDao implements ShoppingListDao {
 }

@@ -1,4 +1,4 @@
 package com.micamash.kitchencompanion.dao;
 
-public class JdbcRecipeDao {
+public class JdbcRecipeDao implements RecipeDao {
 }
